@@ -1,14 +1,41 @@
 .container {
-  margin-top: 20px;
-  margin-left: 10px;
-  display: grid;
-  column-gap: 10px;
-  row-gap: 40px;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 1rem;
+}
+
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 1rem;
 }
 
 .thumbnail {
-  width: 90%;
-  height: 100%;
+  margin-top: 2rem;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.titleContainer {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.subTitleContainer {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
 }

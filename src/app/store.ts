@@ -1,8 +1,26 @@
-import { configureStore } from '@reduxjs/toolkit'
 import thumbnailsReducer from '../features/thumbnails/thumbnailsSlice'
 
-export const store = configureStore({
-  reducer: {
-    thumbnails: thumbnailsReducer,
-  },
-})
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+
+export function makeStore() {
+  return configureStore({
+    reducer: {
+      thumbnails: thumbnailsReducer,
+    },
+  })
+}
+
+const store = makeStore()
+
+export type AppState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch
+
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  AppState,
+  unknown,
+  Action<string>
+>
+
+export default store

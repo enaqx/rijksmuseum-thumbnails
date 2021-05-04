@@ -6,9 +6,7 @@ export const fetchThumbnails: any = createAsyncThunk(
     const response = await fetch(
       'https://www.rijksmuseum.nl/api/nl/collection?key=yW6uq3BV&involvedMaker=Rembrandt+van+Rijn',
     )
-
     const responseObject = await response.json()
-
     return responseObject.artObjects
   },
 )
